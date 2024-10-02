@@ -375,9 +375,14 @@ __initialWindowLayout: {
         // Call the original play method to ensure playback starts
         originalPlayMethod();
         
+        document.getElementById('rightSidebar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    document.getElementById('leftSidebar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    document.querySelector('main').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        
         document.querySelectorAll('.gen-window').forEach((window) => {
       window.style.display = 'block'; // Shows all elements with the .gen-window class
     });
+    
 
         // After calling play, trigger MilkDrop desktop mode
         console.log('Play button pressed, enabling MilkDrop desktop mode...');

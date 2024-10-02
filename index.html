@@ -33,11 +33,63 @@
           height: auto;
           margin-top: calc(50vh - 75px); /* Center vertically */
         }
+
+        #toggleButton {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+
+      background-color: #2acc2a;
+      color: #000000;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #toggleButton:hover {
+      background-color: #1f9d1f;
+    }
       </style>
+
+<script>
+  let contentVisible = true;
+
+  function toggleVisibility() {
+    // Get the main content, sidebars, and footer
+    const main = document.querySelector('main');
+    const rightSidebar = document.getElementById('rightSidebar');
+    const leftSidebar = document.getElementById('leftSidebar');
+    const footer = document.getElementById('footer');
+
+    // Toggle visibility
+    if (contentVisible) {
+      main.style.display = 'none';
+      rightSidebar.style.display = 'none';
+      leftSidebar.style.display = 'none';
+      footer.style.display = 'none';
+      document.getElementById('toggleButton').innerText = 'Show Content';
+    } else {
+      main.style.display = 'block';
+      rightSidebar.style.display = 'block';
+      leftSidebar.style.display = 'block';
+      footer.style.display = 'block';
+      document.getElementById('toggleButton').innerText = 'Hide Content';
+    }
+
+    // Update the visibility state
+    contentVisible = !contentVisible;
+  }
+</script>
+
 </head>
 
 <body>
   
+  <button id="toggleButton" onclick="toggleVisibility()">Hide Content</button>
+
+
+
   <div id="loader-wrapper">
     <img src="https://files.catbox.moe/usznjx.gif" alt="Loading..." class="loader-img">
     <h1>loading...</h1>

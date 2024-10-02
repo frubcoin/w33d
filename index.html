@@ -16,34 +16,43 @@
     });
   </script>
 
-<script language = "Javascript">
-
-button1on = new Image();
-button1on.src = "skullbubblyon.png";
-button1off = new Image();
-button1off.src = "skullclean.png";
-button1hi = new Image();
-button1hi.src = "skullbubbly.png";
-
-
-
-function img_act(imgName)  {
-imgOn = eval(imgName + "on.src");
-document [imgName].src = imgOn;
-}
-
-function img_inact(imgName)   {
-imgOff = eval(imgName + "off.src");
-document [imgName].src = imgOff;
-}
-
-function img_hi(imgName)
-{
-imgHi = eval(imgName + "hi.src");
-document [imgName].src = imgHi;
-}
-
-</script>
+<script language="Javascript">
+  button1on = new Image();
+  button1on.src = "skullbubblyon.png";
+  button1off = new Image();
+  button1off.src = "skullclean.png";
+  button1hi = new Image();
+  button1hi.src = "skullbubbly.png";
+  
+  function img_act(imgName) {
+      imgOn = eval(imgName + "on.src");
+      document[imgName].src = imgOn;
+  
+      // Set timeout to reset the script after 1 second
+      setTimeout(function() {
+          resetScript();
+      }, 1000); // 1000 milliseconds = 1 second
+  }
+  
+  function img_inact(imgName) {
+      imgOff = eval(imgName + "off.src");
+      document[imgName].src = imgOff;
+  }
+  
+  function img_hi(imgName) {
+      imgHi = eval(imgName + "hi.src");
+      document[imgName].src = imgHi;
+  }
+  
+  // Function to reset the script (refreshes the page or resets the image)
+  function resetScript() {
+      // Reset the image to the initial state
+      document['button1'].src = button1hi.src;
+      
+      // If you'd prefer to reload the entire page instead, uncomment the line below:
+      // location.reload();
+  }
+  </script>
     
 
     <style>
